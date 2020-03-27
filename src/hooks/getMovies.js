@@ -8,7 +8,7 @@ export default () => {
         let response = await movieDbApi.get("/search/multi",{
             params : {
                 query : term,
-                api_key : "8cd514344b5f41bcbf02e17a60406817",
+                api_key : "",
                 page:1
             }
         });
