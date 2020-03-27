@@ -24,7 +24,6 @@ const styles = StyleSheet.create({
         flexDirection:"row",
         backgroundColor:"rgb(221, 220, 220)",
         height:50,
-        marginHorizontal:15,
         borderRadius:4,
         marginBottom:10
     },

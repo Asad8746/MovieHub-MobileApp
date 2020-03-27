@@ -1,9 +1,8 @@
 import React from "react";
-import {View,Text} from "react-native";
 import {NavigationContainer} from "@react-navigation/native";
-import {createStackNavigator, HeaderTitle} from "@react-navigation/stack";
+import {createStackNavigator} from "@react-navigation/stack";
 import MainSreen from "./src/screens/MainScreen";
-import MovieDetailScreen from "./src/screens/MovieDetailScreen";
+import MovieDetailScreen from "./src/screens/MediaDetailScreen";
 
 
 const Stack = createStackNavigator();
@@ -12,9 +11,18 @@ const Stack = createStackNavigator();
 const App = () => {
   return (
     <NavigationContainer >
-      <Stack.Navigator initialRouteName="Main">
-        <Stack.Screen component={MainSreen} name="Main" options={{title:"Movie Hub"}}/>
-        <Stack.Screen component={MovieDetailScreen} name="Movie_Details" options={{title:"Detail"}}/>
+      <Stack.Navigator initialRouteName="Main" screenOptions={{
+        title:"Movie Hub",
+        headerStyle: {backgroundColor:"#36454F"},
+        headerTitleStyle :{
+          color:"orange",
+          fontSize:15,
+          fontWeight:"100",
+          textTransform:"uppercase"
+        }
+      }}>
+        <Stack.Screen component={MainSreen} name="Main" />
+        <Stack.Screen component={MovieDetailScreen} name="Media_Detail" />
       </Stack.Navigator>
     </NavigationContainer>
   )

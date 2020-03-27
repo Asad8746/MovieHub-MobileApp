@@ -1,9 +1,11 @@
 import React from "react";
 import {View,Text,FlatList,TouchableOpacity,StyleSheet} from "react-native";
 import MovieDetail from "./MovieDetail";
-import {withNavigation} from "react-navigation";
 
-const MediaList = ({title,mediaList,navigation}) => {
+const MediaList = ({title,mediaList,navigation,navigateTo}) => {
+    if(mediaList.length===0) {
+        return null;
+    }
     return (
         <View>
             <Text style={styles.title}>{title}</Text>
@@ -11,7 +13,7 @@ const MediaList = ({title,mediaList,navigation}) => {
                 keyExtractor={(item)=> item.id.toString()}
                 data={mediaList}
                 renderItem={({item})=> { 
-                  return <TouchableOpacity onPress={()=> {navigation.navigate("Movie_Details",item.id)}}>
+                  return <TouchableOpacity onPress={()=> {navigation.navigate("Media_Detail",{id : item.id,navigateTo})}}>
                         <MovieDetail media={item}/>
                     </TouchableOpacity>}
                 }
